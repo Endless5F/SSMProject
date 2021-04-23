@@ -6,15 +6,4 @@
     <!-- 开启二级缓存 -->
     <cache eviction="LRU" flushInterval="600000" size="512" readOnly="true"/>
 
-    <!--select查询语句 useCache：不使用缓存-->
-    <select id="getUserAll" resultType="com.demo.maven.entity.User" useCache="false">
-        select *
-        from user
-    </select>
-
-    <!-- flushCache：立马清空缓存 -->
-    <insert id="insert" parameterType="com.demo.maven.entity.User" flushCache="true">
-        insert into user(uid, name, address, number) values(#{uid}, #{name}, #{address}, #{number})
-    </insert>
-
 </mapper>

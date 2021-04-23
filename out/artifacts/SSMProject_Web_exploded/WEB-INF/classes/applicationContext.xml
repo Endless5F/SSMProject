@@ -6,32 +6,36 @@
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 			    http://www.springframework.org/schema/beans/spring-beans.xsd
+			    http://www.springframework.org/schema/mvc
+                http://www.springframework.org/schema/mvc/spring-mvc.xsd
 			    http://www.springframework.org/schema/context
 			    http://www.springframework.org/schema/context/spring-context.xsd
 			    http://www.springframework.org/schema/tx
 			    http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!-- 开始Spring MVC的注解模式 -->
-    <context:component-scan base-package="com.demo.ssm"/>
+    <context:component-scan base-package="com.demo"/>
     <mvc:annotation-driven>
         <!-- 解决响应中 中文乱码问题 -->
-        <mvc:message-converters>
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <property name="supportedMediaTypes">
-                    <list>
-                        <value>text/plain;charset=utf-8</value>
-                        <value>text/html;charset=UTF-8</value>
-                        <value>application/json;charset=UTF-8</value>
-                    </list>
-                </property>
-            </bean>
-        </mvc:message-converters>
+<!--        <mvc:message-converters>-->
+<!--            <bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+<!--                <property name="supportedMediaTypes">-->
+<!--                    <list>-->
+<!--                        <value>text/plain;charset=utf-8</value>-->
+<!--                        <value>text/html;charset=UTF-8</value>-->
+<!--                        <value>application/json;charset=UTF-8</value>-->
+<!--                    </list>-->
+<!--                </property>-->
+<!--            </bean>-->
+<!--        </mvc:message-converters>-->
     </mvc:annotation-driven>
+    <context:annotation-config/>
     <mvc:default-servlet-handler/>
 
     <!--配置数据源-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/demo_db_first?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+        <property name="url"
+                  value="jdbc:mysql://localhost:3306/demo_db_first?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
         <property name="username" value="root"/>
         <property name="password" value="rootroot"/>
         <property name="initialSize" value="5"/>
@@ -49,19 +53,10 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--数据源-->
         <property name="dataSource" ref="dataSource"/>
-        <!--别名的包所在的位置-->
-        <property name="typeAliasesPackage" value="com.demo.ssm.entity"/>
         <!-- mapper文件所在的位置 -->
         <property name="mapperLocations" value="classpath:mappers/*.xml"/>
         <!-- mybatis配置文件地址 -->
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
-
-        <!--其他配置-->
-        <property name="configuration">
-            <bean class="org.apache.ibatis.session.Configuration">
-                <property name="mapUnderscoreToCamelCase" value="true"/>
-            </bean>
-        </property>
     </bean>
 
     <!-- 配置Mapper扫描器 -->
