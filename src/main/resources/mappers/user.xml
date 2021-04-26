@@ -13,7 +13,7 @@
     </select>
 
     <!-- flushCache：立马清空缓存 -->
-    <insert id="insert" parameterType="com.demo.ssm.entity.User" flushCache="true">
+    <insert id="insertSpring" parameterType="com.demo.ssm.entity.User" flushCache="true">
         insert into user(uid, name, address, number) values(#{uid}, #{name}, #{address}, #{number})
     </insert>
 
