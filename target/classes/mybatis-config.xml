@@ -9,10 +9,8 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     <plugins>
-        <plugin interceptor="com.github.pagehelper.PageInterceptor">
-            <property name="helperDialect" value="mysql"/>
-            <property name="reasonable" value="true"/>
-        </plugin>
+        <!-- mybatis-plus分页配置 -->
+        <plugin interceptor="com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor"/>
     </plugins>
 <!--    <environments default="development">-->
 <!--        <environment id="development">-->

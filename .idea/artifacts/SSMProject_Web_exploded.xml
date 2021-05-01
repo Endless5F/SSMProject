@@ -35,6 +35,11 @@
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.1.11" />
           <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:2.1" />
+          <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus:3.4.2" />
+          <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus-extension:3.4.2" />
+          <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus-core:3.4.2" />
+          <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus-annotation:3.4.2" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:4.0" />
         </element>
       </element>
     </root>
