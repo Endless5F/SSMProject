@@ -10,14 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54c09074-0eab-40dc-b8d9-115d3be44531" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/img1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/img2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/img3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/img4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/img5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SSMProject_Web_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/SSMProject_Web_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_penggle_kaptcha_2_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jhlabs_filters_2_0_235_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/KaptchaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSMProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SSMProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +185,7 @@
       <workItem from="1619196302867" duration="4552000" />
       <workItem from="1619450388093" duration="1796000" />
       <workItem from="1619858907201" duration="106000" />
-      <workItem from="1619859030062" duration="2193000" />
+      <workItem from="1619859030062" duration="5056000" />
     </task>
     <servers />
   </component>

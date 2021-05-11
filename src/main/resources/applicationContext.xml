@@ -4,6 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 			    http://www.springframework.org/schema/beans/spring-beans.xsd
 			    http://www.springframework.org/schema/mvc
@@ -11,22 +12,22 @@
 			    http://www.springframework.org/schema/context
 			    http://www.springframework.org/schema/context/spring-context.xsd
 			    http://www.springframework.org/schema/tx
-			    http://www.springframework.org/schema/tx/spring-tx.xsd">
+			    http://www.springframework.org/schema/tx/spring-tx.xsd http://www.alibaba.com/schema/stat http://www.alibaba.com/schema/stat.xsd">
     <!-- 开始Spring MVC的注解模式 -->
     <context:component-scan base-package="com.demo"/>
     <mvc:annotation-driven>
         <!-- 解决响应中 中文乱码问题 -->
-<!--        <mvc:message-converters>-->
-<!--            <bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
-<!--                <property name="supportedMediaTypes">-->
-<!--                    <list>-->
-<!--                        <value>text/plain;charset=utf-8</value>-->
-<!--                        <value>text/html;charset=UTF-8</value>-->
-<!--                        <value>application/json;charset=UTF-8</value>-->
-<!--                    </list>-->
-<!--                </property>-->
-<!--            </bean>-->
-<!--        </mvc:message-converters>-->
+        <!--        <mvc:message-converters>-->
+        <!--            <bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+        <!--                <property name="supportedMediaTypes">-->
+        <!--                    <list>-->
+        <!--                        <value>text/plain;charset=utf-8</value>-->
+        <!--                        <value>text/html;charset=UTF-8</value>-->
+        <!--                        <value>application/json;charset=UTF-8</value>-->
+        <!--                    </list>-->
+        <!--                </property>-->
+        <!--            </bean>-->
+        <!--        </mvc:message-converters>-->
     </mvc:annotation-driven>
     <context:annotation-config/>
     <mvc:default-servlet-handler/>
@@ -64,5 +65,35 @@
     <!-- 配置Mapper扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.demo.ssm.mapper"/>
+    </bean>
+
+    <!-- 配置kaptcha -->
+    <bean name="KaptchaProduccer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
+        <property name="config">
+            <bean class="com.google.code.kaptcha.util.Config">
+                <constructor-arg>
+                    <props>
+                        <!-- 图片边框 -->
+                        <prop key="kaptcha.border">no</prop>
+                        <!-- 图片宽 -->
+                        <prop key="kaptcha.image.width">120</prop>
+                        <!-- 字体颜色 -->
+                        <prop key="kaptcha.textproducer.font.color">blue</prop>
+                        <!-- 字体大小 -->
+                        <prop key="kaptcha.textproducer.font.size">40</prop>
+                        <!-- 验证码长度 -->
+                        <prop key="kaptcha.textproducer.char.length">4</prop>
+                    </props>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- 开启spring task定时任务注解模式 -->
+    <task:annotation-driven/>
+
+    <!-- 激活spring mvc文件上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 </beans>
